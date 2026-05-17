@@ -6,27 +6,23 @@
   --font-display: "Outfit", "Inter", sans-serif;
   
   --color-brand-purple: #A78BFA;
-  --color-brand-blue: #2563EB;
-  --color-brand-dark: #1E1B4B;
-  --color-brand-light: #F8FAFC;
+  --color-brand-blue: #3B82F6;
+  --color-brand-dark: #FFFFFF;
+  --color-brand-light: #030014;
 }
 
 @layer utilities {
-  .glass {
-    @apply bg-white/10 backdrop-blur-md border border-white/20 shadow-xl;
-  }
-  .glass-purple {
-    @apply bg-brand-purple/20 backdrop-blur-lg border border-brand-purple/30 shadow-lg shadow-purple-500/10;
-  }
-  .glass-blue {
-    @apply bg-brand-blue/20 backdrop-blur-lg border border-brand-blue/30 shadow-lg shadow-blue-500/10;
-  }
-  .glass-card {
-    @apply bg-white/40 backdrop-blur-xl border border-white/50 shadow-2xl;
-  }
-
-  .glass-pill {
-    @apply bg-white/20 backdrop-blur-md border border-white/30 shadow-sm;
+  .bg-dreamy-gradient {
+    background-color: #030014;
+    background-image: 
+      radial-gradient(circle at 15% 15%, rgba(236, 72, 153, 0.5) 0%, transparent 20%),
+      radial-gradient(circle at 85% 20%, rgba(167, 139, 250, 0.5) 0%, transparent 18%),
+      radial-gradient(circle at 80% 80%, rgba(217, 70, 239, 0.45) 0%, transparent 20%),
+      radial-gradient(circle at 20% 85%, rgba(56, 189, 248, 0.5) 0%, transparent 18%),
+      radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.4) 0%, transparent 25%);
+    background-attachment: fixed;
+    background-size: 200% 200%;
+    animation: liquid-flow 20s ease-in-out infinite;
   }
 
   .glass-gradient-border {
@@ -46,17 +42,22 @@
     margin: -1px;
     border-radius: inherit;
     background: linear-gradient(135deg, rgba(37, 99, 235, 0.5), rgba(167, 139, 250, 0.5), rgba(244, 114, 182, 0.5));
+    opacity: 0.5;
   }
-  
-  .bg-dreamy-gradient {
-    background-color: #ffffff;
-    background-image: 
-      radial-gradient(circle at 10% 20%, rgba(255, 0, 255, 0.2) 0%, transparent 25%),
-      radial-gradient(circle at 85% 15%, rgba(167, 139, 250, 0.25) 0%, transparent 30%),
-      radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.15) 0%, transparent 25%),
-      radial-gradient(circle at 20% 80%, rgba(233, 213, 255, 0.2) 0%, transparent 35%),
-      radial-gradient(circle at 90% 85%, rgba(0, 74, 173, 0.1) 0%, transparent 25%);
-    background-attachment: fixed;
+
+  @keyframes liquid-flow {
+    0% {
+      background-position: 0% 0%;
+    }
+    33% {
+      background-position: 100% 50%;
+    }
+    66% {
+      background-position: 50% 100%;
+    }
+    100% {
+      background-position: 0% 0%;
+    }
   }
 }
 
@@ -66,10 +67,10 @@
   }
   
   body {
-    @apply font-sans text-slate-900 bg-brand-light antialiased;
+    @apply font-sans text-white/90 bg-brand-light antialiased transition-colors duration-300;
   }
   
   h1, h2, h3, h4 {
-    @apply font-display font-bold tracking-tight text-brand-dark;
+    @apply font-display font-medium tracking-tight text-brand-dark;
   }
 }

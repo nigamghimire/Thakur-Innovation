@@ -23,7 +23,7 @@ export default function Testimonials() {
         <div className="grid lg:grid-cols-3 gap-16 items-start">
           <div className="lg:col-span-1">
             <h2 className="text-4xl font-display mb-4">Echoes of <span className="text-brand-blue">Innovation</span></h2>
-            <p className="text-slate-500 leading-relaxed">
+            <p className="text-white/60 leading-relaxed">
               How we've transformed emerging brands into digital titans. Our commitment to excellence drives every partnership.
             </p>
           </div>
@@ -39,14 +39,14 @@ export default function Testimonials() {
                 className="glass-gradient-border p-8 rounded-3xl relative"
               >
                 <Quote className="text-brand-blue/20 mb-6" size={40} />
-                <p className="text-slate-700 italic mb-8 leading-relaxed">
+                <p className="text-white/80 italic mb-8 leading-relaxed">
                   "{t.quote}"
                 </p>
                 <div className="flex items-center gap-4">
-                  <img src={t.img} alt={t.author} className="w-12 h-12 rounded-full border-2 border-white shadow-sm" />
+                  <img src={t.img} alt={t.author} className="w-12 h-12 rounded-full border-2 border-white/20 shadow-sm" />
                   <div>
-                    <h4 className="font-bold text-brand-dark text-sm">{t.author}</h4>
-                    <p className="text-xs text-slate-500">{t.role}</p>
+                    <h4 className="font-bold text-white text-sm">{t.author}</h4>
+                    <p className="text-xs text-white/40">{t.role}</p>
                   </div>
                 </div>
               </motion.div>

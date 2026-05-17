@@ -43,7 +43,7 @@ export default function About() {
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              className="text-slate-500 mb-10 leading-relaxed"
+              className="text-white/60 mb-10 leading-relaxed"
             >
               Thakur Innovation was founded on a simple premise: Digital authority is not accidental; it is engineered. We combine deep sociological intelligence with minimalist aesthetic design to create brands that don't just exist—they dominate.
             </motion.p>
@@ -56,7 +56,7 @@ export default function About() {
                 { icon: Award, title: "#1 Ranked Agency", text: "Leader in strategic digital transformation 2024." }
               ].map((item, i) => (
                 <motion.div 
-                  key={item.title}
+                   key={item.title}
                   initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.1 }}
@@ -66,8 +66,8 @@ export default function About() {
                     <item.icon size={20} className="text-brand-blue" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-brand-dark mb-1">{item.title}</h4>
-                    <p className="text-xs text-slate-500 leading-relaxed">{item.text}</p>
+                    <h4 className="font-bold text-white mb-1">{item.title}</h4>
+                    <p className="text-xs text-white/40 leading-relaxed">{item.text}</p>
                   </div>
                 </motion.div>
               ))}

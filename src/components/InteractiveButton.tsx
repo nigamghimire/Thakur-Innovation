@@ -45,7 +45,7 @@ export default function InteractiveButton({ children, className = "", onClick }:
     >
       <span className="relative z-10">{children}</span>
       <motion.div 
-        className="absolute inset-0 bg-white/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity" 
+        className="absolute inset-0 bg-white/10 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity" 
       />
     </motion.button>
   );

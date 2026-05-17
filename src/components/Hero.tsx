@@ -1,10 +1,25 @@
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 import { CheckCircle2, ArrowRight } from "lucide-react";
+import { useState, useEffect } from "react";
 
 import InteractiveButton from "./InteractiveButton";
-import heroImage from "../assets/AI hero image.png.png";
+import growthImg from "../assets/growth.png";
+import socialMediaImg from "../assets/social media.png";
+import strategyImg from "../assets/strategy.png";
+import websiteImg from "../assets/website.png";
+
+const images = [growthImg, socialMediaImg, strategyImg, websiteImg];
 
 export default function Hero() {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % images.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <section className="relative pt-32 pb-20 overflow-hidden" aria-labelledby="hero-heading">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -14,31 +29,36 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full glass-card mb-6 border-white/80">
-              <CheckCircle2 size={14} className="text-brand-blue" />
-              <span className="text-[10px] uppercase tracking-wider font-bold text-brand-blue">Premium Digital Strategy</span>
+            <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-white/10 border border-white/10 shadow-sm mb-8 transition-all hover:shadow-md">
+              <CheckCircle2 size={16} className="text-brand-blue" />
+              <span className="text-[11px] uppercase tracking-widest font-semibold text-brand-blue">Premium Digital Strategy</span>
             </div>
             
-            <h1 id="hero-heading" className="text-4xl lg:text-6xl font-display font-medium leading-[1.1] mb-6">
-              Elevate Your Brand's <span className="text-brand-blue font-bold">Digital Footprint</span>
+            <h1 id="hero-heading" className="text-5xl lg:text-6xl font-display font-semibold leading-[1.1] mb-8 text-white">
+              Creative Marketing <br />
+              <span className="text-brand-blue">Solutions That Grow Brands</span>
             </h1>
             
-            <p className="text-lg text-slate-600 mb-10 leading-relaxed max-w-xl">
-              We sculpt high-authority digital identities through strategic intelligence and aesthetic precision. Join the elite network of brands dominating the social landscape.
+            <p className="text-lg text-white/70 mb-4 leading-relaxed max-w-xl font-medium">
+              From branding and social media to websites and digital campaigns — we help businesses stand out and scale online.
+            </p>
+
+            <p className="text-base text-brand-blue font-semibold mb-12 italic opacity-90">
+              Helping modern businesses grow through creativity and strategy.
             </p>
             
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-5">
               <InteractiveButton
                 onClick={() => document.getElementById('solutions')?.scrollIntoView({ behavior: 'smooth' })}
-                className="glass-purple text-brand-dark px-8 py-4 rounded-full font-bold"
+                className="glass-purple px-10 py-5 rounded-full font-semibold shadow-indigo-500/10 text-lg"
               >
-                Scale Your Brand
+                Get Started
               </InteractiveButton>
               <InteractiveButton
                 onClick={() => document.getElementById('strategy')?.scrollIntoView({ behavior: 'smooth' })}
-                className="glass text-slate-700 px-8 py-4 rounded-full font-bold"
+                className="bg-white/10 text-white border border-white/10 px-10 py-5 rounded-full font-semibold shadow-xl shadow-slate-900/50 hover:shadow-2xl transition-all text-lg"
               >
-                Our Strategy
+                View Our Work
               </InteractiveButton>
             </div>
           </motion.div>
@@ -49,14 +69,33 @@ export default function Hero() {
             transition={{ duration: 0.8 }}
             className="relative"
           >
-            <div className="relative rounded-3xl z-10">
-              <div className="relative overflow-hidden rounded-3xl z-20">
-                <img 
-                  src={heroImage} 
-                  alt="AI Hub Technology"
-                  className="w-full aspect-[4/3] object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-tr from-brand-dark/40 to-transparent"></div>
+            <div className="relative rounded-3xl z-10 group">
+              {/* Soft Border Glow */}
+              <div className="absolute -inset-1 bg-gradient-to-tr from-brand-blue/20 via-brand-purple/30 to-brand-blue/20 rounded-[2rem] blur-xl opacity-60 group-hover:opacity-100 transition-opacity duration-1000"></div>
+              
+              <div className="relative overflow-hidden rounded-3xl z-20 aspect-[4/3] border border-white/10 shadow-2xl">
+                <AnimatePresence initial={false}>
+                  <motion.img 
+                    key={currentImageIndex}
+                    src={images[currentImageIndex]} 
+                    alt={`Thakur Innovation - ${['Growth', 'Social Media', 'Strategy', 'Web Design'][currentImageIndex]}`}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 2, ease: "easeInOut" }}
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                </AnimatePresence>
+                
+                {/* Pagination Indicators */}
+                <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex gap-3 z-30">
+                  {images.map((_, i) => (
+                    <div 
+                      key={i}
+                      className={`h-1.5 rounded-full transition-all duration-500 ${i === currentImageIndex ? 'w-10 bg-white' : 'w-2 bg-white/40'}`}
+                    />
+                  ))}
+                </div>
               </div>
               
               {/* Image Glow Effects - Bottom, Left, Right */}
@@ -70,18 +109,19 @@ export default function Hero() {
                 animate={{ x: 0, opacity: 1 }}
                 whileHover={{ scale: 1.05, rotate: -2 }}
                 transition={{ delay: 0.8, duration: 0.5 }}
-                className="absolute -bottom-8 -left-8 glass p-6 rounded-2xl cursor-default z-20 backdrop-blur-xl border-white/30 bg-white/10"
+                className="absolute -bottom-10 -left-10 glass p-8 rounded-3xl cursor-default z-20 backdrop-blur-2xl border-white/20 bg-white/5 shadow-2xl shadow-indigo-500/10 min-w-[220px]"
               >
-                <p className="text-[10px] uppercase tracking-widest font-bold text-slate-200 mb-1">Growth Index</p>
-                <h3 className="text-3xl font-display font-bold text-slate-50">+240%</h3>
-                <p className="text-xs text-slate-300">Avg. Network Authority</p>
+                <p className="text-xs uppercase tracking-[0.2em] font-bold text-white/40 mb-2">Growth Index</p>
+                <h3 className="text-5xl font-display font-semibold text-white mb-1">+240%</h3>
+                <p className="text-sm text-white/60 font-medium tracking-tight">Avg. Network Authority</p>
               </motion.div>
             </div>
             
             {/* Enhanced background glow shadow effect */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-purple-500/20 rounded-full blur-[100px] -z-10 animate-pulse" />
-            <div className="absolute -top-20 -right-20 w-[300px] h-[300px] bg-blue-400/20 rounded-full blur-[120px] -z-10" />
-            <div className="absolute -bottom-20 -left-20 w-[350px] h-[350px] bg-pink-400/20 rounded-full blur-[120px] -z-10" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] bg-purple-300/10 rounded-full blur-[120px] -z-10" />
+            <div className="absolute -top-40 -right-40 w-[500px] h-[500px] bg-indigo-300/15 rounded-full blur-[150px] -z-10" />
+            <div className="absolute -bottom-40 -left-40 w-[500px] h-[500px] bg-pink-300/15 rounded-full blur-[150px] -z-10" />
+            <div className="absolute top-10 right-1/4 w-[300px] h-[300px] bg-blue-200/10 rounded-full blur-[100px] -z-10" />
           </motion.div>
         </div>
       </div>

@@ -30,19 +30,21 @@ const footerLinks = [
 
 export default function Footer() {
   return (
-    <footer className="pt-24 pb-12">
+    <footer className="pt-24 pb-12 bg-brand-light border-t border-white/10 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-12 mb-20">
           <div className="lg:col-span-2">
-            <Logo className="h-32 w-auto mb-6 grayscale hover:grayscale-0 transition-all opacity-80" />
-            <p className="text-slate-500 max-w-sm leading-relaxed text-sm">
+            <Logo 
+              className="h-64 w-auto mb-6 grayscale hover:grayscale-0 transition-all opacity-80" 
+            />
+            <p className="text-white/40 max-w-sm leading-relaxed text-sm">
               Defining the future of digital identity through minimalist elegance and strategic power. We build more than brands; we build authorities.
             </p>
           </div>
           
           {footerLinks.map((group) => (
             <div key={`footer-group-${group.title.toLowerCase()}`}>
-              <h4 className="text-[10px] tracking-[0.2em] font-bold text-slate-400 mb-6 uppercase">
+              <h4 className="text-[10px] tracking-[0.2em] font-bold text-white/40 mb-6 uppercase">
                 {group.title}
               </h4>
               <ul className="space-y-4">
@@ -56,7 +58,7 @@ export default function Footer() {
                           document.querySelector(link.href)?.scrollIntoView({ behavior: 'smooth' });
                         }
                       }}
-                      className="text-sm text-slate-600 hover:text-brand-blue transition-colors"
+                      className="text-sm text-white/40 hover:text-brand-blue transition-colors"
                     >
                       {link.name}
                     </a>
@@ -67,14 +69,14 @@ export default function Footer() {
           ))}
         </div>
         
-        <div className="pt-12 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-xs text-slate-400">
+        <div className="pt-12 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-xs text-white/30">
             © 2024 Thakur Innovation. All rights reserved.
           </p>
           <div className="flex gap-8">
-            <a href="https://www.facebook.com/profile.php?id=61589716889332" target="_blank" rel="noopener noreferrer" className="text-xs text-slate-400 hover:text-brand-dark">Facebook</a>
-            <a href="#" className="text-xs text-slate-400 hover:text-brand-dark">LinkedIn</a>
-            <a href="#" className="text-xs text-slate-400 hover:text-brand-dark">Instagram</a>
+            <a href="https://www.facebook.com/profile.php?id=61589716889332" target="_blank" rel="noopener noreferrer" className="text-xs text-white/30 hover:text-brand-blue transition-colors">Facebook</a>
+            <a href="#" className="text-xs text-white/30 hover:text-brand-blue transition-colors">LinkedIn</a>
+            <a href="#" className="text-xs text-white/30 hover:text-brand-blue transition-colors">Instagram</a>
           </div>
         </div>
       </div>

@@ -3,6 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+import { useState, useEffect } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Solutions from "./components/Solutions";
@@ -13,11 +14,10 @@ import Features from "./components/Features";
 import Testimonials from "./components/Testimonials";
 import CTA from "./components/CTA";
 import Footer from "./components/Footer";
-import { motion, AnimatePresence } from "motion/react";
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-white bg-dreamy-gradient selection:bg-brand-purple/30">
+    <div className="min-h-screen bg-dreamy-gradient selection:bg-brand-purple/30 transition-colors duration-300">
       <Navbar />
       <main>
         <Hero key="hero-section" />

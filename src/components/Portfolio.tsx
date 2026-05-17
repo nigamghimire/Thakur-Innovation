@@ -39,7 +39,7 @@ export default function Portfolio() {
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
           <div>
             <h2 className="text-4xl md:text-5xl font-display mb-4">Strategic <span className="text-brand-purple">Portfolio</span></h2>
-            <p className="text-slate-500 max-w-md">Selecting our most impactful partnerships where we transformed vision into market dominance.</p>
+            <p className="text-white/60 max-w-md">Selecting our most impactful partnerships where we transformed vision into market dominance.</p>
           </div>
           <button className="text-brand-blue font-bold text-sm flex items-center gap-2 hover:gap-3 transition-all">
             View All Work <ExternalLink size={16} />
@@ -62,8 +62,8 @@ export default function Portfolio() {
                   alt={project.title} 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-8">
-                  <div className="px-8 py-4 bg-gradient-to-r from-blue-600/60 to-purple-600/60 backdrop-blur-xl rounded-full border border-white/30 shadow-lg shadow-purple-500/20 text-white font-bold text-sm overflow-hidden relative">
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-8">
+                  <div className="px-8 py-4 bg-gradient-to-r from-blue-600/60 to-purple-600/60 backdrop-blur-xl rounded-full border border-white/10 shadow-lg shadow-purple-500/20 text-white font-bold text-sm overflow-hidden relative">
                     <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
                     <span className="relative z-10 tracking-tight">{project.metric}</span>
                   </div>
@@ -71,8 +71,8 @@ export default function Portfolio() {
               </div>
               <div className="flex justify-between items-center px-2">
                 <div>
-                  <h3 className="text-2xl font-display font-bold group-hover:text-brand-blue transition-colors">{project.title}</h3>
-                  <p className="text-sm text-slate-400 font-medium uppercase tracking-widest">{project.category}</p>
+                  <h3 className="text-2xl font-display font-bold text-white group-hover:text-brand-blue transition-colors">{project.title}</h3>
+                  <p className="text-sm text-white/40 font-medium uppercase tracking-widest">{project.category}</p>
                 </div>
               </div>
             </motion.div>

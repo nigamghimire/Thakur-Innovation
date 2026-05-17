@@ -53,7 +53,7 @@ export default function Solutions() {
           <motion.p 
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
-            className="text-brand-blue font-bold tracking-widest uppercase text-xs mb-4"
+            className="text-brand-blue font-semibold tracking-widest uppercase text-xs mb-4"
           >
             Capabilities
           </motion.p>
@@ -79,7 +79,7 @@ export default function Solutions() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1, duration: 0.8 }}
-              className="p-10 rounded-[3.5rem] bg-gradient-to-br from-purple-400/20 via-violet-400/20 to-blue-400/20 backdrop-blur-3xl border border-white/60 shadow-lg shadow-purple-500/10 hover:shadow-xl hover:shadow-purple-500/20 hover:-translate-y-3 transition-all duration-500 group relative flex flex-col items-start min-h-[320px]"
+              className="p-10 rounded-[3.5rem] bg-gradient-to-br from-purple-400/10 via-violet-400/10 to-blue-400/10 backdrop-blur-3xl border border-white/10 shadow-lg shadow-purple-500/10 hover:shadow-xl hover:shadow-purple-500/20 hover:-translate-y-3 transition-all duration-500 group relative flex flex-col items-start min-h-[320px]"
             >
               {/* Top Right Mini Pill */}
               <div className="absolute top-8 right-8 w-12 h-6 border-2 border-white/40 rounded-full bg-white/10" />
@@ -88,18 +88,18 @@ export default function Solutions() {
                 <div className="w-12 h-12 rounded-2xl bg-white/20 border border-white/40 flex items-center justify-center mb-10 group-hover:scale-110 transition-transform">
                   <solution.icon size={24} className="text-brand-dark" />
                 </div>
-                <h3 className="text-2xl font-display font-black mb-1 text-slate-900 tracking-tight">{solution.title}</h3>
-                <p className="text-slate-600/80 font-medium text-sm">Strategic Precision</p>
+                <h3 className="text-2xl font-display font-bold mb-1 text-white tracking-tight">{solution.title}</h3>
+                <p className="text-white/40 font-medium text-sm">Strategic Precision</p>
               </div>
 
-              <p className="text-slate-700/70 text-sm leading-relaxed mb-auto pb-8 font-medium">
+              <p className="text-white/60 text-sm leading-relaxed mb-auto pb-8 font-medium">
                 {solution.description}
               </p>
 
               <div className="w-full">
                 <button 
                   onClick={() => document.getElementById('strategy')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-600/60 to-purple-600/60 hover:from-blue-600/80 hover:to-purple-600/80 backdrop-blur-xl rounded-full border border-white/30 shadow-lg shadow-purple-500/20 transition-all text-white font-bold text-sm transform hover:translate-y-[-2px] active:scale-95 group/btn overflow-hidden relative"
+                  className="flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-600/60 to-purple-600/60 hover:from-blue-600/80 hover:to-purple-600/80 backdrop-blur-xl rounded-full border border-white/30 shadow-lg shadow-purple-500/20 transition-all text-white font-semibold text-sm transform hover:translate-y-[-2px] active:scale-95 group/btn overflow-hidden relative"
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
                   <Plus size={18} strokeWidth={3} className="relative z-10" />

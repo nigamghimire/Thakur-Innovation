@@ -46,7 +46,7 @@ export default function Features() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1, duration: 0.5 }}
-              className={`p-10 rounded-[3.5rem] ${feature.className} bg-gradient-to-br from-blue-400/30 via-indigo-400/30 to-purple-400/30 backdrop-blur-3xl border border-white/60 shadow-lg shadow-blue-500/10 hover:shadow-xl hover:shadow-blue-500/20 hover:-translate-y-3 transition-all duration-500 group relative cursor-default overflow-hidden`}
+              className={`p-10 rounded-[3.5rem] ${feature.className} bg-gradient-to-br from-blue-400/10 via-indigo-400/10 to-purple-400/10 backdrop-blur-3xl border border-white/10 shadow-lg shadow-blue-500/10 hover:shadow-xl hover:shadow-blue-500/20 hover:-translate-y-3 transition-all duration-500 group relative cursor-default overflow-hidden`}
             >
               <div className="absolute top-8 right-8 w-12 h-6 border-2 border-white/40 rounded-full bg-white/10" />
 
@@ -63,9 +63,9 @@ export default function Features() {
                     <div className="w-14 h-14 rounded-2xl bg-white/30 border border-white/50 flex items-center justify-center mb-8 group-hover:rotate-6 transition-transform">
                       <feature.icon className="text-brand-dark" size={28} />
                     </div>
-                    <h3 className="text-2xl font-display font-black mb-2 text-slate-900 tracking-tight">{feature.title}</h3>
-                    <p className="text-slate-600/80 font-medium text-sm mb-4">Strategic Framework</p>
-                    <p className="text-slate-700/70 text-sm leading-relaxed font-medium">
+                    <h3 className="text-2xl font-display font-bold mb-2 text-white tracking-tight">{feature.title}</h3>
+                    <p className="text-white/40 font-medium text-sm mb-4">Strategic Framework</p>
+                    <p className="text-white/60 text-sm leading-relaxed font-medium">
                       {feature.description}
                     </p>
                   </>
@@ -78,13 +78,13 @@ export default function Features() {
                             <img src={`https://i.pravatar.cc/100?img=${n + 10}`} alt="" className="w-full h-full object-cover" />
                           </div>
                         ))}
-                        <div className="w-14 h-14 rounded-full border-4 border-white/60 bg-brand-purple flex items-center justify-center text-white text-xs font-bold shadow-sm">
+                        <div className="w-14 h-14 rounded-full border-4 border-white/60 bg-brand-purple flex items-center justify-center text-white text-xs font-semibold shadow-sm">
                           +500
                         </div>
                       </div>
                       <div>
-                        <h3 className="text-2xl font-display font-black mb-1 text-slate-900 tracking-tight whitespace-nowrap">{feature.title}</h3>
-                        <span className="text-slate-700/70 font-medium text-sm">{feature.description}</span>
+                        <h3 className="text-2xl font-display font-bold mb-1 text-white tracking-tight whitespace-nowrap">{feature.title}</h3>
+                        <span className="text-white/60 font-medium text-sm">{feature.description}</span>
                       </div>
                     </div>
                     <div className="w-16 h-16 rounded-full bg-white/30 border border-white/50 flex items-center justify-center group-hover:translate-x-3 transition-transform">

@@ -1,11 +1,15 @@
 import React from "react";
-import logo from "../assets/logo.png";
+import logoWhite from "../assets/logo.white.png";
 
-export default function Logo({ className = "h-40 w-auto" }: { className?: string }) {
+interface LogoProps {
+  className?: string;
+}
+
+export default function Logo({ className = "h-56 w-auto" }: LogoProps) {
   return (
     <div className="flex items-center">
       <img 
-        src={logo} 
+        src={logoWhite} 
         alt="Thakur Innovation Logo" 
         className={className}
       />
