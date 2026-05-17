@@ -72,7 +72,7 @@ export default function Footer() {
             © 2024 Thakur Innovation. All rights reserved.
           </p>
           <div className="flex gap-8">
-            <a href="#" className="text-xs text-slate-400 hover:text-brand-dark">Twitter</a>
+            <a href="https://www.facebook.com/profile.php?id=61589716889332" target="_blank" rel="noopener noreferrer" className="text-xs text-slate-400 hover:text-brand-dark">Facebook</a>
             <a href="#" className="text-xs text-slate-400 hover:text-brand-dark">LinkedIn</a>
             <a href="#" className="text-xs text-slate-400 hover:text-brand-dark">Instagram</a>
           </div>
