@@ -1,6 +1,6 @@
-import { motion, AnimatePresence } from "motion/react";
+import { motion, AnimatePresence, useScroll, useSpring, useMotionValue } from "motion/react";
 import { Menu, X } from "lucide-react";
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 
 import InteractiveButton from "./InteractiveButton";
@@ -8,16 +8,121 @@ import Logo from "./Logo";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
 
   const navItems = [
-    { name: "Home", href: "/#hero" },
-    { name: "Our Services", href: "/#solutions" },
-    { name: "Portfolio", href: "/#portfolio" },
-    { name: "Strategy", href: "/#strategy" },
-    { name: "About", href: "/#about" }
+    { name: "Home", id: "hero", href: "/#hero" },
+    { name: "Our Services", id: "solutions", href: "/#solutions" },
+    { name: "Clients", id: "clients", href: "/#clients" },
+    { name: "Portfolio", id: "portfolio", href: "/#portfolio" },
+    { name: "Strategy", id: "strategy", href: "/#strategy" },
+    { name: "About", id: "about", href: "/#about" }
   ];
+
+  const itemRefs = useRef<(HTMLAnchorElement | null)[]>([]);
+  const lineX = useSpring(0, { stiffness: 300, damping: 30 });
+  const lineWidth = useSpring(0, { stiffness: 300, damping: 30 });
+  const lineOpacity = useSpring(0);
+
+  useEffect(() => {
+    if (location.pathname !== '/') {
+      setActiveSection("");
+      lineOpacity.set(0);
+      return;
+    }
+
+    const updateIndicator = () => {
+      const scrollY = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const scrollBottom = scrollY + windowHeight;
+      const docHeight = document.documentElement.scrollHeight;
+
+      // Get section offsets
+      const sections = navItems.map(item => {
+        const el = document.getElementById(item.id);
+        const rect = el?.getBoundingClientRect();
+        const offset = (el?.offsetTop || 0);
+        return { 
+          id: item.id, 
+          offsetTop: offset,
+          height: el?.offsetHeight || 0,
+          center: offset + (el?.offsetHeight || 0) / 2
+        };
+      });
+
+      // Find current progress index
+      let progressIndex = 0;
+      
+      // If at bottom of page, highlight last item
+      if (Math.abs(scrollBottom - docHeight) < 50) {
+        progressIndex = sections.length - 1;
+      } else {
+        // Find which sections we are between
+        for (let i = 0; i < sections.length; i++) {
+          const section = sections[i];
+          const nextSection = sections[i + 1];
+          
+          if (scrollY >= section.offsetTop && (!nextSection || scrollY < nextSection.offsetTop)) {
+            if (!nextSection) {
+              progressIndex = i;
+            } else {
+              const range = nextSection.offsetTop - section.offsetTop;
+              const current = scrollY - section.offsetTop;
+              progressIndex = i + (current / range);
+            }
+            break;
+          }
+        }
+      }
+
+      // Safeguard index
+      progressIndex = Math.max(0, Math.min(progressIndex, sections.length - 1));
+
+      // Calculate indicator position
+      const lowIndex = Math.floor(progressIndex);
+      const highIndex = Math.ceil(progressIndex);
+      const diff = progressIndex - lowIndex;
+
+      const lowRef = itemRefs.current[lowIndex];
+      const highRef = itemRefs.current[highIndex];
+
+      if (lowRef && highRef) {
+        const lowRect = lowRef.getBoundingClientRect();
+        const highRect = highRef.getBoundingClientRect();
+        
+        const parent = lowRef.parentElement;
+        if (parent) {
+          const parentRect = parent.getBoundingClientRect();
+          
+          const lowXPos = lowRect.left - parentRect.left;
+          const highXPos = highRect.left - parentRect.left;
+          
+          const targetX = lowXPos + (highXPos - lowXPos) * diff;
+          const targetWidth = lowRect.width + (highRect.width - lowRect.width) * diff;
+
+          lineX.set(targetX);
+          lineWidth.set(targetWidth);
+          lineOpacity.set(1);
+          
+          // Update active section state for text colors (using threshold)
+          setActiveSection(navItems[Math.round(progressIndex)].id);
+        }
+      }
+    };
+
+    window.addEventListener('scroll', updateIndicator);
+    window.addEventListener('resize', updateIndicator);
+    // Initial call after a brief delay to ensure layout
+    const timer = setTimeout(updateIndicator, 100);
+
+    return () => {
+      window.removeEventListener('scroll', updateIndicator);
+      window.removeEventListener('resize', updateIndicator);
+      clearTimeout(timer);
+    };
+  }, [location.pathname]);
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     if (location.pathname === '/' && href.startsWith('/#')) {
@@ -41,24 +146,40 @@ export default function Navbar() {
             </a>
           </motion.div>
           
-          <div className="hidden md:flex items-center space-x-10">
-            {navItems.map((item, i) => (
-              <motion.a
-                key={`nav-item-${item.name.toLowerCase()}`}
-                href={item.href}
-                onClick={(e) => handleNavClick(e, item.href)}
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.1 }}
-                className="text-sm font-semibold text-white/70 hover:text-brand-blue transition-all relative group"
-                aria-label={`Navigate to ${item.name}`}
-              >
-                {item.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-blue transition-all group-hover:w-full"></span>
-              </motion.a>
-            ))}
+          <div className="hidden md:flex items-center space-x-10 relative">
+            {navItems.map((item, i) => {
+              const isActive = activeSection === item.id;
+              
+              return (
+                <motion.a
+                  key={`nav-item-${item.name.toLowerCase()}`}
+                  ref={el => itemRefs.current[i] = el}
+                  href={item.href}
+                  onClick={(e) => handleNavClick(e, item.href)}
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.1 }}
+                  className={`text-sm font-semibold transition-all relative h-24 flex items-center ${
+                    isActive ? "text-white" : "text-white/70 hover:text-white"
+                  }`}
+                  aria-label={`Navigate to ${item.name}`}
+                >
+                  {item.name}
+                </motion.a>
+              );
+            })}
             
-            <div className="flex items-center gap-4">
+            {/* Smooth Indicator Line */}
+            <motion.div
+              style={{
+                x: lineX,
+                width: lineWidth,
+                opacity: lineOpacity,
+              }}
+              className="absolute bottom-0 h-0.5 bg-brand-blue"
+            />
+            
+            <div className="flex items-center gap-4 pl-10">
               <InteractiveButton
                 onClick={() => navigate('/get-started')}
                 className="glass-brand px-6 py-2.5 rounded-full text-sm font-semibold"

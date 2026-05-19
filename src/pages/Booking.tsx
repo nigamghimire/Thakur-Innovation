@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { Mail, MapPin, ArrowLeft } from "lucide-react";
+import { Mail, MapPin, ArrowLeft, MessageCircle, Facebook, Linkedin } from "lucide-react";
 import { Link } from "react-router-dom";
 import InteractiveButton from "../components/InteractiveButton";
 
@@ -19,36 +19,84 @@ export default function Booking() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="inline-flex px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-brand-blue text-xs font-bold tracking-wider uppercase mb-6">
-              Direct Connection
+            <div className="flex flex-col gap-2 mb-6">
+              <div className="inline-flex w-fit px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-brand-blue text-xs font-bold tracking-wider uppercase">
+                Contact
+              </div>
+              <div className="inline-flex w-fit px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-brand-purple text-xs font-bold tracking-wider uppercase">
+                Direct Connection
+              </div>
             </div>
-            <h1 className="text-5xl md:text-7xl font-display font-bold text-white mb-8 leading-tight">
-              Let's build your <span className="text-brand-blue">digital authority</span>
+            <h1 className="text-5xl md:text-6xl font-display font-bold text-white mb-8 leading-tight">
+              Get in touch with our <span className="text-brand-blue">expert team</span>
             </h1>
-            <p className="text-white/60 text-xl font-medium mb-12 leading-relaxed max-w-lg">
-              Our team specializes in high-velocity growth and sophisticated digital identity management for elite brands. Reach out to start your transformation.
+            <p className="text-white/60 text-lg font-medium mb-12 leading-relaxed max-w-lg">
+              We bring designs to life, capture your audience’s attention and leave an impression, telling your story through creative concepts.
             </p>
 
-            <div className="space-y-8">
-              <div className="flex items-start gap-5">
-                <div className="w-12 h-12 rounded-full border border-white/20 bg-white/5 flex items-center justify-center text-brand-blue flex-shrink-0">
+            <div className="space-y-6">
+              {/* Email */}
+              <div className="flex items-start gap-5 p-4 rounded-3xl hover:bg-white/5 transition-colors group">
+                <div className="w-12 h-12 rounded-full border border-white/20 bg-white/5 flex items-center justify-center text-brand-blue flex-shrink-0 group-hover:scale-110 transition-transform">
                   <Mail size={24} />
                 </div>
                 <div>
-                  <p className="text-white/40 text-sm font-bold uppercase tracking-widest mb-1">Email us</p>
-                  <a href="mailto:hello@thakur.com" className="text-2xl font-display font-bold text-white hover:text-brand-blue transition-colors">
+                  <p className="text-white/40 text-xs font-bold uppercase tracking-widest mb-1">Email us</p>
+                  <a href="mailto:hello@thakur.com" className="text-xl md:text-2xl font-display font-bold text-white hover:text-brand-blue transition-colors">
                     hello@thakur.com
                   </a>
                 </div>
               </div>
 
-              <div className="flex items-start gap-5">
+              {/* WhatsApp */}
+              <div className="flex items-start gap-5 p-4 rounded-3xl hover:bg-white/5 transition-colors group">
+                <div className="w-12 h-12 rounded-full border border-white/20 bg-white/5 flex items-center justify-center text-brand-blue flex-shrink-0 group-hover:scale-110 transition-transform">
+                  <MessageCircle size={24} />
+                </div>
+                <div>
+                  <p className="text-white/40 text-xs font-bold uppercase tracking-widest mb-1">WhatsApp</p>
+                  <a href="https://wa.me/9779800000000" target="_blank" rel="noreferrer" className="text-xl md:text-2xl font-display font-bold text-white hover:text-brand-blue transition-colors">
+                    +977 980 000 0000
+                  </a>
+                </div>
+              </div>
+
+              {/* Socials */}
+              <div className="flex items-start gap-5 p-4">
+                <div className="flex gap-4">
+                  <a 
+                    href="https://facebook.com/thakur" 
+                    target="_blank" 
+                    rel="noreferrer"
+                    className="w-12 h-12 rounded-full border border-white/20 bg-white/5 flex items-center justify-center text-brand-blue hover:bg-brand-blue hover:text-white transition-all transform hover:scale-110"
+                    aria-label="Facebook"
+                  >
+                    <Facebook size={20} />
+                  </a>
+                  <a 
+                    href="https://linkedin.com/company/thakur" 
+                    target="_blank" 
+                    rel="noreferrer" 
+                    className="w-12 h-12 rounded-full border border-white/20 bg-white/5 flex items-center justify-center text-brand-blue hover:bg-brand-blue hover:text-white transition-all transform hover:scale-110"
+                    aria-label="LinkedIn"
+                  >
+                    <Linkedin size={20} />
+                  </a>
+                </div>
+                <div className="flex flex-col justify-center">
+                  <p className="text-white/40 text-xs font-bold uppercase tracking-widest mb-1">Connect with us</p>
+                  <p className="text-white font-bold opacity-80">Social Platforms</p>
+                </div>
+              </div>
+
+              {/* Location */}
+              <div className="flex items-start gap-5 p-4 border-t border-white/10 pt-8 mt-4">
                 <div className="w-12 h-12 rounded-full border border-white/20 bg-white/5 flex items-center justify-center text-brand-blue flex-shrink-0">
                   <MapPin size={24} />
                 </div>
                 <div>
-                  <p className="text-white/40 text-sm font-bold uppercase tracking-widest mb-1">Global Hub</p>
-                  <p className="text-2xl font-display font-bold text-white leading-relaxed">
+                  <p className="text-white/40 text-xs font-bold uppercase tracking-widest mb-1">Global Hub</p>
+                  <p className="text-xl font-display font-bold text-white leading-relaxed">
                     New York • Singapore • London
                   </p>
                 </div>
