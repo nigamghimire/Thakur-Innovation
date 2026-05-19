@@ -30,7 +30,7 @@ const footerLinks = [
 
 export default function Footer() {
   return (
-    <footer className="pt-24 pb-12 bg-brand-light border-t border-white/10 transition-colors duration-300">
+    <footer className="pt-24 pb-12 bg-brand-dark border-t border-white/10 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-12 mb-20">
           <div className="lg:col-span-2">

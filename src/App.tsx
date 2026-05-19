@@ -6,6 +6,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Landing from "./pages/Landing";
 import Booking from "./pages/Booking";
+import FullPortfolio from "./pages/FullPortfolio";
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/get-started" element={<Booking />} />
+          <Route path="/portfolio" element={<FullPortfolio />} />
         </Routes>
       </div>
     </BrowserRouter>

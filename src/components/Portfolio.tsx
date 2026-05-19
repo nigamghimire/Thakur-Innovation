@@ -1,6 +1,8 @@
 import { motion } from "motion/react";
 import { ExternalLink } from "lucide-react";
 
+import { Link } from "react-router-dom";
+
 const projects = [
   {
     title: "Lumina Global",
@@ -41,9 +43,12 @@ export default function Portfolio() {
             <h2 className="text-4xl md:text-5xl font-display mb-4">Strategic <span className="text-brand-purple">Portfolio</span></h2>
             <p className="text-white/60 max-w-md">Selecting our most impactful partnerships where we transformed vision into market dominance.</p>
           </div>
-          <button className="text-brand-blue font-bold text-sm flex items-center gap-2 hover:gap-3 transition-all">
+          <Link 
+            to="/portfolio"
+            className="text-brand-blue font-bold text-sm flex items-center gap-2 hover:gap-3 transition-all"
+          >
             View All Work <ExternalLink size={16} />
-          </button>
+          </Link>
         </div>
         
         <div className="grid md:grid-cols-2 gap-8">

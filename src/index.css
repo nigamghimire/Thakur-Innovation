@@ -7,8 +7,8 @@
   
   --color-brand-purple: #A78BFA;
   --color-brand-blue: #3B82F6;
-  --color-brand-dark: #FFFFFF;
-  --color-brand-light: #030014;
+  --color-brand-dark: #030014;
+  --color-brand-light: #F8FAFC;
 }
 
 @layer utilities {
@@ -110,10 +110,10 @@
   }
   
   body {
-    @apply font-sans text-white/90 bg-brand-light antialiased transition-colors duration-300;
+    @apply font-sans text-white/90 bg-brand-dark antialiased transition-colors duration-300;
   }
   
   h1, h2, h3, h4 {
-    @apply font-display font-medium tracking-tight text-brand-dark;
+    @apply font-display font-medium tracking-tight text-white;
   }
 }
