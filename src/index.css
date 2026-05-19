@@ -56,12 +56,22 @@
   }
 
   .glass-brand {
-    @apply bg-gradient-to-r from-blue-600/40 to-purple-600/40 backdrop-blur-xl border border-white/20 shadow-[0_8px_32px_rgba(139,92,246,0.15)];
+    @apply bg-gradient-to-r from-blue-600/60 to-purple-600/60 backdrop-blur-xl border border-white/10 shadow-lg shadow-purple-500/20;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .glass-brand:hover {
-    @apply from-blue-600/70 to-purple-600/70 border-white/40 shadow-[0_0_30px_rgba(139,92,246,0.3)];
+    @apply from-blue-600/80 to-purple-600/80 border-white/40 shadow-xl shadow-purple-500/40;
+    transform: translateY(-2px);
+  }
+
+  .btn-primary {
+    @apply bg-brand-blue text-white shadow-xl shadow-blue-500/20;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .btn-primary:hover {
+    @apply bg-blue-600 shadow-2xl shadow-blue-500/40 scale-105;
     transform: translateY(-2px);
   }
 

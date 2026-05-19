@@ -52,7 +52,7 @@ export default function Hero() {
             <div className="flex flex-wrap gap-5">
               <InteractiveButton
                 onClick={() => navigate('/get-started')}
-                className="glass-brand px-10 py-5 rounded-full font-semibold shadow-indigo-500/10 text-lg"
+                className="btn-primary px-10 py-5 rounded-full font-bold text-lg"
               >
                 Get Started
               </InteractiveButton>

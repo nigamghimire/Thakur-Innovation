@@ -182,7 +182,7 @@ export default function Navbar() {
             <div className="flex items-center gap-4 pl-10">
               <InteractiveButton
                 onClick={() => navigate('/get-started')}
-                className="glass-brand px-6 py-2.5 rounded-full text-sm font-semibold"
+                className="btn-primary px-6 py-2.5 rounded-full text-sm font-bold"
               >
                 Contact Us
               </InteractiveButton>
@@ -225,7 +225,7 @@ export default function Navbar() {
                   setIsOpen(false);
                   navigate('/get-started');
                 }}
-                className="glass-brand px-8 py-3 rounded-full text-base font-semibold w-full"
+                className="btn-primary px-8 py-3 rounded-full text-base font-bold w-full"
               >
                 Contact Us
               </InteractiveButton>

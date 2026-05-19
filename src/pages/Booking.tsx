@@ -42,8 +42,8 @@ export default function Booking() {
                 </div>
                 <div>
                   <p className="text-white/40 text-xs font-bold uppercase tracking-widest mb-1">Email us</p>
-                  <a href="mailto:hello@thakur.com" className="text-xl md:text-2xl font-display font-bold text-white hover:text-brand-blue transition-colors">
-                    hello@thakur.com
+                  <a href="mailto:thakurinnovation2058@gmail.com" className="text-xl md:text-2xl font-display font-bold text-white hover:text-brand-blue transition-colors">
+                    thakurinnovation2058@gmail.com
                   </a>
                 </div>
               </div>
@@ -55,8 +55,8 @@ export default function Booking() {
                 </div>
                 <div>
                   <p className="text-white/40 text-xs font-bold uppercase tracking-widest mb-1">WhatsApp</p>
-                  <a href="https://wa.me/9779800000000" target="_blank" rel="noreferrer" className="text-xl md:text-2xl font-display font-bold text-white hover:text-brand-blue transition-colors">
-                    +977 980 000 0000
+                  <a href="https://wa.me/9779712065768" target="_blank" rel="noreferrer" className="text-xl md:text-2xl font-display font-bold text-white hover:text-brand-blue transition-colors">
+                    +977 971-2065768
                   </a>
                 </div>
               </div>
@@ -65,7 +65,7 @@ export default function Booking() {
               <div className="flex items-start gap-5 p-4">
                 <div className="flex gap-4">
                   <a 
-                    href="https://facebook.com/thakur" 
+                    href="https://www.facebook.com/profile.php?id=61589716889332" 
                     target="_blank" 
                     rel="noreferrer"
                     className="w-12 h-12 rounded-full border border-white/20 bg-white/5 flex items-center justify-center text-brand-blue hover:bg-brand-blue hover:text-white transition-all transform hover:scale-110"
@@ -97,7 +97,7 @@ export default function Booking() {
                 <div>
                   <p className="text-white/40 text-xs font-bold uppercase tracking-widest mb-1">Global Hub</p>
                   <p className="text-xl font-display font-bold text-white leading-relaxed">
-                    New York • Singapore • London
+                    Kathmandu Maharajgunj
                   </p>
                 </div>
               </div>

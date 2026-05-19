@@ -66,7 +66,7 @@ export default function CTA() {
           </p>
           <InteractiveButton
             onClick={() => navigate('/get-started')}
-            className="glass-brand text-white px-10 py-5 rounded-full font-bold text-lg"
+            className="btn-primary text-white px-10 py-5 rounded-full font-bold text-lg"
           >
             Book Your Consultation
           </InteractiveButton>

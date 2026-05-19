@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import { ArrowLeft, ExternalLink } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import InteractiveButton from "../components/InteractiveButton";
 import Navbar from "../components/Navbar";
 
 const allProjects = [
@@ -56,6 +57,7 @@ const allProjects = [
 ];
 
 export default function FullPortfolio() {
+  const navigate = useNavigate();
   return (
     <div className="min-h-screen bg-brand-dark">
       <Navbar />
@@ -139,12 +141,12 @@ export default function FullPortfolio() {
       <div className="py-20 border-t border-white/5 bg-white/2">
         <div className="max-w-5xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-display font-bold text-white mb-8">Ready to be our next success story?</h2>
-          <Link 
-            to="/get-started" 
-            className="inline-flex h-14 items-center px-10 rounded-full bg-brand-blue text-white font-bold hover:scale-105 transition-transform shadow-xl shadow-blue-500/20"
+          <InteractiveButton
+            onClick={() => navigate('/get-started')}
+            className="btn-primary flex h-14 items-center px-10 rounded-full font-bold shadow-xl shadow-blue-500/20"
           >
             Start Your Project
-          </Link>
+          </InteractiveButton>
         </div>
       </div>
     </div>
