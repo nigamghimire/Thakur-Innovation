@@ -45,6 +45,49 @@
     opacity: 0.5;
   }
 
+  .glass-white {
+    @apply bg-white/10 backdrop-blur-xl border border-white/20 shadow-[0_8px_32px_rgba(255,255,255,0.05)];
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .glass-white:hover {
+    @apply bg-[#030014] border-white/60 shadow-[0_0_30px_rgba(255,255,255,0.1)];
+    transform: translateY(-2px);
+  }
+
+  .glass-brand {
+    @apply bg-gradient-to-r from-blue-600/40 to-purple-600/40 backdrop-blur-xl border border-white/20 shadow-[0_8px_32px_rgba(139,92,246,0.15)];
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .glass-brand:hover {
+    @apply from-blue-600/70 to-purple-600/70 border-white/40 shadow-[0_0_30px_rgba(139,92,246,0.3)];
+    transform: translateY(-2px);
+  }
+
+  .light-line {
+    @apply absolute h-[1px] w-full bg-gradient-to-r from-transparent via-white/80 to-transparent;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+    filter: blur(0.5px);
+  }
+
+  .luminous-border {
+    position: relative;
+  }
+
+  .luminous-border::after {
+    content: "";
+    @apply absolute -inset-[1px] rounded-[inherit] pointer-events-none;
+    background: linear-gradient(135deg, rgba(255,255,255,0.3), rgba(255,255,255,0.05), rgba(255,255,255,0.3));
+    z-index: 10;
+  }
+
+  .luminous-glow {
+    box-shadow: 
+      0 0 40px -10px rgba(139, 92, 246, 0.4),
+      0 0 20px -5px rgba(56, 189, 248, 0.3);
+  }
+
   @keyframes liquid-flow {
     0% {
       background-position: 0% 0%;

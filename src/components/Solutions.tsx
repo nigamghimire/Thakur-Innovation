@@ -1,42 +1,63 @@
 import { motion } from "motion/react";
-import { Lightbulb, Rocket, BarChart3, Target, Search, Share2, Plus } from "lucide-react";
+import { 
+  Megaphone, 
+  Palette, 
+  Headset, 
+  PhoneCall, 
+  Code2, 
+  Cpu, 
+  Server, 
+  Briefcase 
+} from "lucide-react";
 
 const solutions = [
   {
-    title: "Brand Architecture",
-    description: "We build the structural foundation of your brand identity, ensuring consistency and authority across all touchpoints.",
-    icon: Lightbulb,
+    title: "Digital Marketing",
+    description: "Data-driven strategies to amplify your brand presence and drive measurable growth across all digital channels.",
+    icon: Megaphone,
     color: "bg-blue-500"
   },
   {
-    title: "Performance Marketing",
-    description: "Data-driven campaigns that convert attention into measurable growth through precision targeting.",
-    icon: BarChart3,
+    title: "Graphic Design",
+    description: "Compelling visual identities and creative assets that capture your brand's essence and engage your audience.",
+    icon: Palette,
     color: "bg-purple-500"
   },
   {
-    title: "SEO Ecosystems",
-    description: "Dominating search landscapes with high-authority backlink profiles and semantic content optimization.",
-    icon: Search,
+    title: "Virtual Assistant",
+    description: "Professional administrative support to streamline your operations and help you focus on core business growth.",
+    icon: Headset,
     color: "bg-indigo-500"
   },
   {
-    title: "Social Resonance",
-    description: "Creating biological-tier engagement through psychological-trigger content and community engineering.",
-    icon: Share2,
+    title: "Call Centre",
+    description: "Scalable customer support and outreach solutions that maintain high-quality communication with your clients.",
+    icon: PhoneCall,
     color: "bg-blue-600"
   },
   {
-    title: "Executive Strategy",
-    description: "High-level consulting for CEOs and founders looking to become the definitive voice in their industry.",
-    icon: Target,
+    title: "Website and App Development",
+    description: "Custom, responsive web and mobile applications built with the latest technologies for optimal performance.",
+    icon: Code2,
     color: "bg-purple-600"
   },
   {
-    title: "Rapid Scaling",
-    description: "Aggressive growth frameworks designed to compress years of brand building into months of dominance.",
-    icon: Rocket,
+    title: "Software Development",
+    description: "Tailored software solutions designed to solve complex business challenges and automate your workflows.",
+    icon: Cpu,
     color: "bg-indigo-600"
+  },
+  {
+    title: "IT Services",
+    description: "Comprehensive infrastructure management and technical support to keep your business running smoothly.",
+    icon: Server,
+    color: "bg-blue-700"
+  },
+  {
+    title: "Technology Consulting & Contract Work",
+    description: "Expert guidance and specialized contract talent for your most ambitious technical projects.",
+    icon: Briefcase,
+    color: "bg-purple-700"
   }
 ];
 
@@ -62,8 +83,16 @@ export default function Solutions() {
             whileInView={{ opacity: 1, y: 0 }}
             className="text-4xl md:text-5xl font-display mb-6"
           >
-            Precision <span className="text-brand-blue">Solutions</span>
+            Our <span className="text-brand-blue">Service</span>
           </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="text-white/60 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-medium"
+          >
+            From strategy to execution, we create digital experiences that help brands stand out, connect, and grow in a competitive world.
+          </motion.p>
           <motion.div 
             initial={{ width: 0 }}
             whileInView={{ width: 80 }}
@@ -71,7 +100,7 @@ export default function Solutions() {
           />
         </div>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {solutions.map((solution, i) => (
             <motion.div
               key={solution.title}
@@ -79,33 +108,22 @@ export default function Solutions() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1, duration: 0.8 }}
-              className="p-10 rounded-[3.5rem] bg-gradient-to-br from-purple-400/10 via-violet-400/10 to-blue-400/10 backdrop-blur-3xl border border-white/10 shadow-lg shadow-purple-500/10 hover:shadow-xl hover:shadow-purple-500/20 hover:-translate-y-3 transition-all duration-500 group relative flex flex-col items-start min-h-[320px]"
+              className="p-8 rounded-[2.5rem] bg-gradient-to-br from-purple-400/10 via-violet-400/10 to-blue-400/10 backdrop-blur-3xl border border-white/10 shadow-lg shadow-purple-500/10 hover:shadow-xl hover:shadow-purple-500/20 hover:-translate-y-3 transition-all duration-500 group relative flex flex-col items-start min-h-[300px]"
             >
               {/* Top Right Mini Pill */}
-              <div className="absolute top-8 right-8 w-12 h-6 border-2 border-white/40 rounded-full bg-white/10" />
+              <div className="absolute top-6 right-6 w-10 h-5 border-2 border-white/40 rounded-full bg-white/10" />
 
-              <div className="mb-8">
-                <div className="w-12 h-12 rounded-2xl bg-white/20 border border-white/40 flex items-center justify-center mb-10 group-hover:scale-110 transition-transform">
+              <div className="mb-6">
+                <div className="w-12 h-12 rounded-xl bg-white/20 border border-white/40 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                   <solution.icon size={24} className="text-brand-dark" />
                 </div>
-                <h3 className="text-2xl font-display font-bold mb-1 text-white tracking-tight">{solution.title}</h3>
-                <p className="text-white/40 font-medium text-sm">Strategic Precision</p>
+                <h3 className="text-xl font-display font-bold mb-1 text-white tracking-tight leading-tight">{solution.title}</h3>
+                <p className="text-white/40 font-medium text-xs">Strategic Excellence</p>
               </div>
 
-              <p className="text-white/60 text-sm leading-relaxed mb-auto pb-8 font-medium">
+              <p className="text-white/60 text-xs leading-relaxed font-medium">
                 {solution.description}
               </p>
-
-              <div className="w-full">
-                <button 
-                  onClick={() => document.getElementById('strategy')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-600/60 to-purple-600/60 hover:from-blue-600/80 hover:to-purple-600/80 backdrop-blur-xl rounded-full border border-white/30 shadow-lg shadow-purple-500/20 transition-all text-white font-semibold text-sm transform hover:translate-y-[-2px] active:scale-95 group/btn overflow-hidden relative"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
-                  <Plus size={18} strokeWidth={3} className="relative z-10" />
-                  <span className="relative z-10">Explore plan</span>
-                </button>
-              </div>
             </motion.div>
           ))}
         </div>

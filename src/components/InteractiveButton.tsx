@@ -41,11 +41,12 @@ export default function InteractiveButton({ children, className = "", onClick }:
       style={{ x: mouseX, y: mouseY }}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
-      className={`relative group transition-all duration-200 ${className}`}
+      className={`relative group transition-all duration-300 overflow-hidden ${className}`}
     >
+      <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-in-out z-20" />
       <span className="relative z-10">{children}</span>
       <motion.div 
-        className="absolute inset-0 bg-white/10 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity" 
+        className="absolute inset-0 bg-white/5 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity" 
       />
     </motion.button>
   );

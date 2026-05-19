@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from "motion/react";
-import { CheckCircle2, ArrowRight } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 import InteractiveButton from "./InteractiveButton";
 import growthImg from "../assets/growth.png";
@@ -12,6 +13,7 @@ const images = [growthImg, socialMediaImg, strategyImg, websiteImg];
 
 export default function Hero() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -21,7 +23,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative pt-32 pb-20 overflow-hidden" aria-labelledby="hero-heading">
+    <section id="hero" className="relative pt-32 pb-20 overflow-hidden" aria-labelledby="hero-heading">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <motion.div
@@ -49,13 +51,13 @@ export default function Hero() {
             
             <div className="flex flex-wrap gap-5">
               <InteractiveButton
-                onClick={() => document.getElementById('solutions')?.scrollIntoView({ behavior: 'smooth' })}
-                className="glass-purple px-10 py-5 rounded-full font-semibold shadow-indigo-500/10 text-lg"
+                onClick={() => navigate('/get-started')}
+                className="glass-brand px-10 py-5 rounded-full font-semibold shadow-indigo-500/10 text-lg"
               >
                 Get Started
               </InteractiveButton>
               <InteractiveButton
-                onClick={() => document.getElementById('strategy')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' })}
                 className="bg-white/10 text-white border border-white/10 px-10 py-5 rounded-full font-semibold shadow-xl shadow-slate-900/50 hover:shadow-2xl transition-all text-lg"
               >
                 View Our Work

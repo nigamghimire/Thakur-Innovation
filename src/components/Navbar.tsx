@@ -1,14 +1,32 @@
 import { motion, AnimatePresence } from "motion/react";
-import { ArrowRight, Menu, X } from "lucide-react";
-import { useState } from "react";
+import { Menu, X } from "lucide-react";
+import React, { useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 
 import InteractiveButton from "./InteractiveButton";
 import Logo from "./Logo";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
-  const navItems = ["Solutions", "Portfolio", "Strategy", "About"];
+  const navItems = [
+    { name: "Home", href: "/#hero" },
+    { name: "Our Services", href: "/#solutions" },
+    { name: "Portfolio", href: "/#portfolio" },
+    { name: "Strategy", href: "/#strategy" },
+    { name: "About", href: "/#about" }
+  ];
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (location.pathname === '/' && href.startsWith('/#')) {
+      e.preventDefault();
+      const id = href.replace('/#', '');
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+      setIsOpen(false);
+    }
+  };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/5 backdrop-blur-2xl border-b border-white/10 transition-all duration-300">
@@ -26,23 +44,24 @@ export default function Navbar() {
           <div className="hidden md:flex items-center space-x-10">
             {navItems.map((item, i) => (
               <motion.a
-                key={`nav-item-${item.toLowerCase()}`}
-                href={`#${item.toLowerCase()}`}
+                key={`nav-item-${item.name.toLowerCase()}`}
+                href={item.href}
+                onClick={(e) => handleNavClick(e, item.href)}
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.1 }}
                 className="text-sm font-semibold text-white/70 hover:text-brand-blue transition-all relative group"
-                aria-label={`Navigate to ${item}`}
+                aria-label={`Navigate to ${item.name}`}
               >
-                {item}
+                {item.name}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-blue transition-all group-hover:w-full"></span>
               </motion.a>
             ))}
             
             <div className="flex items-center gap-4">
               <InteractiveButton
-                onClick={() => document.getElementById('consultation')?.scrollIntoView({ behavior: "smooth" })}
-                className="glass-purple px-6 py-2.5 rounded-full text-sm font-semibold"
+                onClick={() => navigate('/get-started')}
+                className="glass-brand px-6 py-2.5 rounded-full text-sm font-semibold"
               >
                 Contact Us
               </InteractiveButton>
@@ -72,20 +91,20 @@ export default function Navbar() {
             <div className="px-4 py-8 space-y-6 flex flex-col items-center">
               {navItems.map((item) => (
                 <a
-                  key={`mobile-nav-${item}`}
-                  href={`#${item.toLowerCase()}`}
-                  onClick={() => setIsOpen(false)}
+                  key={`mobile-nav-${item.name}`}
+                  href={item.href}
+                  onClick={(e) => handleNavClick(e, item.href)}
                   className="text-lg font-semibold text-white/70 hover:text-brand-blue"
                 >
-                  {item}
+                  {item.name}
                 </a>
               ))}
               <InteractiveButton
                 onClick={() => {
                   setIsOpen(false);
-                  document.getElementById('consultation')?.scrollIntoView({ behavior: "smooth" });
+                  navigate('/get-started');
                 }}
-                className="glass-purple px-8 py-3 rounded-full text-base font-semibold w-full"
+                className="glass-brand px-8 py-3 rounded-full text-base font-semibold w-full"
               >
                 Contact Us
               </InteractiveButton>
