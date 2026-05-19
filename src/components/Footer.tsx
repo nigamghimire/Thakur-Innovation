@@ -30,12 +30,12 @@ const footerLinks = [
 
 export default function Footer() {
   return (
-    <footer className="pt-0 pb-12 bg-brand-dark border-t border-white/10 transition-colors duration-300">
+    <footer className="pt-16 pb-12 bg-brand-dark border-t border-white/10 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
           <div className="lg:col-span-2">
             <Logo 
-              className="h-64 w-auto -mt-16 -mb-16 grayscale hover:grayscale-0 transition-all opacity-80" 
+              className="h-64 w-auto -mt-24 -mb-8 grayscale hover:grayscale-0 transition-all opacity-80" 
             />
             <p className="text-white/40 max-w-sm leading-relaxed text-sm">
               Defining the future of digital identity through minimalist elegance and strategic power. We build more than brands; we build authorities.
