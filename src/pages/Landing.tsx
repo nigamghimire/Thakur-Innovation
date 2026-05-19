@@ -5,7 +5,6 @@ import Clients from "../components/Clients";
 import Portfolio from "../components/Portfolio";
 import Strategy from "../components/Strategy";
 import About from "../components/About";
-import Features from "../components/Features";
 import Testimonials from "../components/Testimonials";
 import CTA from "../components/CTA";
 import Footer from "../components/Footer";
@@ -20,7 +19,6 @@ export default function Landing() {
         <Clients key="clients-section" />
         <Portfolio key="portfolio-section" />
         <Strategy key="strategy-section" />
-        <Features key="features-section" />
         <About key="about-section" />
         <Testimonials key="testimonials-section" />
         <CTA key="cta-section" />
