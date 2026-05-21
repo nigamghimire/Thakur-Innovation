@@ -7,6 +7,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Landing from "./pages/Landing";
 import Booking from "./pages/Booking";
 import FullPortfolio from "./pages/FullPortfolio";
+import TermsOfService from "./pages/TermsOfService";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 
 export default function App() {
   return (
@@ -16,6 +18,8 @@ export default function App() {
           <Route path="/" element={<Landing />} />
           <Route path="/get-started" element={<Booking />} />
           <Route path="/portfolio" element={<FullPortfolio />} />
+          <Route path="/terms" element={<TermsOfService />} />
+          <Route path="/privacy" element={<PrivacyPolicy />} />
         </Routes>
       </div>
     </BrowserRouter>
