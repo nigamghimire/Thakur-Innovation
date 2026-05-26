@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import React from "react";
-import { Mail, MapPin, MessageCircle, Facebook, Linkedin } from "lucide-react";
+import { Mail, MapPin, MessageCircle, Facebook, Linkedin, Instagram } from "lucide-react";
 
 export default function Contact() {
   return (
@@ -113,6 +113,15 @@ export default function Contact() {
                 aria-label="LinkedIn"
               >
                 <Linkedin size={18} />
+              </a>
+              <a
+                href="https://www.instagram.com/thakurinnovation/"
+                target="_blank"
+                rel="noreferrer"
+                className="w-12 h-12 rounded-2xl border border-white/10 bg-white/5 flex items-center justify-center text-brand-blue hover:bg-brand-blue hover:text-white transition-all transform hover:scale-105"
+                aria-label="Instagram"
+              >
+                <Instagram size={18} />
               </a>
             </div>
           </motion.div>
