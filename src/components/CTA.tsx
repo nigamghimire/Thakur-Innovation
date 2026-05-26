@@ -65,7 +65,7 @@ export default function CTA() {
             Step into the circle of digital authority. Your journey to unprecedented social growth begins with a single conversation.
           </p>
           <InteractiveButton
-            onClick={() => navigate('/get-started')}
+            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
             className="btn-primary text-white px-10 py-5 rounded-full font-bold text-lg"
           >
             Book Your Consultation

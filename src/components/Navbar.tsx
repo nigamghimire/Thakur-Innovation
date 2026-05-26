@@ -15,10 +15,9 @@ export default function Navbar() {
   const navItems = [
     { name: "Home", id: "hero", href: "/#hero" },
     { name: "Our Services", id: "solutions", href: "/#solutions" },
-    { name: "Clients", id: "clients", href: "/#clients" },
     { name: "Portfolio", id: "portfolio", href: "/#portfolio" },
     { name: "Strategy", id: "strategy", href: "/#strategy" },
-    { name: "About", id: "about", href: "/#about" }
+    { name: "Contact", id: "contact", href: "/#contact" }
   ];
 
   const itemRefs = useRef<(HTMLAnchorElement | null)[]>([]);
@@ -181,7 +180,13 @@ export default function Navbar() {
             
             <div className="flex items-center gap-4 pl-10">
               <InteractiveButton
-                onClick={() => navigate('/get-started')}
+                onClick={() => {
+                  if (location.pathname === '/') {
+                    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                  } else {
+                    navigate('/#contact');
+                  }
+                }}
                 className="btn-primary px-6 py-2.5 rounded-full text-sm font-bold"
               >
                 Contact Us
@@ -223,7 +228,11 @@ export default function Navbar() {
               <InteractiveButton
                 onClick={() => {
                   setIsOpen(false);
-                  navigate('/get-started');
+                  if (location.pathname === '/') {
+                    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                  } else {
+                    navigate('/#contact');
+                  }
                 }}
                 className="btn-primary px-8 py-3 rounded-full text-base font-bold w-full"
               >

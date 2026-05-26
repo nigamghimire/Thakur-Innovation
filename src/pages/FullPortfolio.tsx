@@ -142,7 +142,7 @@ export default function FullPortfolio() {
         <div className="max-w-5xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-display font-bold text-white mb-8">Ready to be our next success story?</h2>
           <InteractiveButton
-            onClick={() => navigate('/get-started')}
+            onClick={() => navigate('/#contact')}
             className="btn-primary flex h-14 items-center px-10 rounded-full font-bold shadow-xl shadow-blue-500/20"
           >
             Start Your Project

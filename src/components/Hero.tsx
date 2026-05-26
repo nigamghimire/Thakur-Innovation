@@ -51,7 +51,7 @@ export default function Hero() {
             
             <div className="flex flex-wrap gap-5">
               <InteractiveButton
-                onClick={() => navigate('/get-started')}
+                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
                 className="btn-primary px-10 py-5 rounded-full font-bold text-lg"
               >
                 Get Started

@@ -14,7 +14,6 @@ const footerLinks = [
   {
     title: "AGENCY",
     links: [
-      { name: "Clients", href: "/#clients" },
       { name: "Portfolio", href: "/#portfolio" },
       { name: "Strategy", href: "/#strategy" }
     ]
@@ -24,7 +23,7 @@ const footerLinks = [
     links: [
       { name: "Terms of Service", href: "/terms" },
       { name: "Privacy Policy", href: "/privacy" },
-      { name: "Contact", href: "mailto:thakurinnovation2058@gmail.com" }
+      { name: "Contact", href: "/#contact" }
     ]
   }
 ];
